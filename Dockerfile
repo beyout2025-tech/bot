@@ -1,20 +1,18 @@
-# اختر نسخة Python مستقرة (3.11)
+# استخدم نسخة Python مستقرة مناسبة مع python-telegram-bot
 FROM python:3.11-slim
 
 # تعيين مجلد العمل داخل الحاوية
 WORKDIR /app
 
 # نسخ ملفات المشروع إلى الحاوية
-COPY requirements.txt .
-COPY bot.py .
-COPY courses.json .  # إذا كنت تستخدم ملف بيانات
+COPY . /app
 
-# تثبيت المكتبات
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# تحديث pip وتثبيت المتطلبات
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
-# تعيين متغير البيئة للبوت
-ENV BOT_TOKEN=your_bot_token_here
+# إعداد متغير البيئة لتمكين تشغيل البوت
+ENV BOT_TOKEN=${BOT_TOKEN}
 
-# تشغيل البوت مباشرة عند تشغيل الحاوية
+# أمر تشغيل البوت
 CMD ["python", "bot.py"]
