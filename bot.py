@@ -5,7 +5,8 @@ from telegram.ext import (
     ConversationHandler, ContextTypes, filters
 )
 
-BOT_TOKEN = "7936382345:AAEpQBnIfJzZX9YstGi2aTochaPIss6T9BI"
+import os
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_ID = 873158772
 DATA_FILE = "courses.json"
 
