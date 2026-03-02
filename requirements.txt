@@ -1,7 +1,7 @@
 python-telegram-bot==20.3
 httpx==0.24.1
 httpcore==0.17.1
-certifi==2026.9.1
+certifi==2026.2.25
 charset-normalizer==3.3.1
 idna==3.4
 typing-extensions==4.7.1
